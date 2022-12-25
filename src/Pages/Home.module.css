@@ -1,0 +1,91 @@
+.h1 {
+    width: 600px;
+    margin: auto;
+    margin-top: 40px;
+    font-family: cursive;
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 50px;
+  }
+  
+  .h1 span {
+    display: block;
+    margin: auto;
+    width: fit-content;
+    font-size: 50px;
+    color: #00b7a8;
+    margin-top: 20px;
+    border: 2px solid black;
+    padding: 10px 30px 10px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px black;
+  }
+  
+  .form {
+    width: 900px;
+    box-sizing: border-box;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 50px;
+  }
+  
+  .form input {
+    border: none;
+    width: 90%;
+    font-size: 18px;
+  }
+  
+  .form input:focus {
+    outline: none;
+  }
+  
+  .form label {
+    font-size: 18px;
+    font-weight: bold;
+    opacity: 50%;
+  }
+  
+  .form .to {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #c7c7c7;
+  }
+  
+  .form .title {
+    padding-bottom: 10px;
+    border-bottom: 2px solid #c7c7c7;
+  }
+  
+  .wrapper-class {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  
+  .editor-class {
+    padding: 0 0 0 1rem;
+    border-bottom: 2px solid #ccc;
+    min-height: 200px;
+  }
+  
+  .toolbar-class {
+    margin-top: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  
+  .form .button {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .button button {
+    padding: 8px 30px 8px 30px;
+    font-size: 18px;
+    background-color: #0c7ce4;
+    border-radius: 5px;
+    border: none;
+    color: white;
+  }
