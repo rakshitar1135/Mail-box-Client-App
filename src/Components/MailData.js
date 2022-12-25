@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import classes from './MailData.module.css';
 import { replaceMail } from '../Store/mail-action';
+import { deleteMail } from '../Store/mail-action';
 
 const MailData = (props) => {
   const loggedUserEmail = JSON.parse(localStorage.getItem('idToken')).email;
@@ -10,13 +11,14 @@ const MailData = (props) => {
   const [showBody, setShowBody] = useState(false);
   const dispatch = useDispatch();
 
+  // checking if mail is read or not
   const readMailHandler = async () => {
     setShowBody((preState) => !preState);
     if (!props.mail.read) {
       const email = props.mail.to.replace('@', '').replace('.', '');
       try {
         const response = await fetch(
-          `https://mail-box-3927d-default-rtdb.firebaseio.com///${email}/${props.mail.id}.json`,
+          `https://mail-box-3927d-default-rtdb.firebaseio.com//${email}/${props.mail.id}.json`,
           {
             method: 'PUT',
             body: JSON.stringify({ ...props.mail, read: true }),
@@ -39,6 +41,11 @@ const MailData = (props) => {
     }
   };
 
+  // deleting mail
+  const removeMailHandler = () => {
+    dispatch(deleteMail(props.mail));
+  }
+
   return (
     <div className={classes.complete}>
       {props.toOrFrom === 'From : ' && !props.mail.read && (
@@ -56,7 +63,8 @@ const MailData = (props) => {
           <div className={classes.title}>{props.mail.title}</div>
         </div>
         <div className={showBody ? classes.body : classes.notBody}>
-          {props.mail.text}
+          <div>{props.mail.text}</div>
+          <i onClick={removeMailHandler} className="ri-delete-bin-6-fill"></i>
         </div>
       </div>
     </div>
